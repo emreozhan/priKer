@@ -2,136 +2,103 @@ const request = require('request');
 const cheerio = require('cheerio');
 const fs = require('fs');
 var msg = require('./messageHelper');
+const Util = require('./Util.js');
+const repository = require('./repository');
+const sqlite3 = require('sqlite3').verbose();
 
 
 function findTextAndReturnRemainder(target, variable) {
     var chopFront = target.substring(target.search(variable) + variable.length, target.length);
-    chopFront = chopFront.replace(/ı/gi, "i");
-    chopFront = chopFront.replace(/İ/gi, "i");
-    chopFront = chopFront.replace(/c/gi, "c");
-    chopFront = chopFront.replace(/Ç/gi, "c");
-    chopFront = chopFront.replace(/ü/gi, "u");
-    chopFront = chopFront.replace(/Ü/gi, "u");
-    chopFront = chopFront.replace(/ş/gi, "s");
-    chopFront = chopFront.replace(/Ş/gi, "s");
-    chopFront = chopFront.replace(/Ğ/gi, "g");
-    chopFront = chopFront.replace(/ğ/gi, "g");
-    chopFront = chopFront.replace(/}]};/gi, "}]}");
-    // console.log("__________________chopFront______"+ chopFront);
-    var result = chopFront.substring(0, chopFront.search("widgetApp.subscribe"));
-    return result;
+    chopFront = chopFront.substring(chopFront.search('"listings":') + 11, chopFront.search(',"currentListing":{'));
+
+    chopFront = Util.escapeAsci(chopFront);
+
+    return chopFront;
 }
 
 module.exports = {
 
-    getPrice: function (urlList, priceList, counter) {
-//console.log(priceList);
-if(counter%4==0)
-msg.sendMessage(331002272,"I am alive !, Hello World!");
-
+    getPrice: function (urlList, counter) {
+        if (counter % 4 == 0) {
+            msg.sendMessage(331002272, "I am alive !, Hello World!");
+            console.log(counter)
+        }
 
         if (urlList != null) {
             urlList.forEach(elem => {
+                var productUrl = elem.url;
+                var productName = elem.productName;
 
-                //console.log("elem: " + elem);
-                request(elem, function (err, res, body) {
+                request(productUrl, function (err, res, body) {
                     if (err) {
                         console.log("err: " + err);
                     }
                     else {
-
                         const arr = [];
                         let $ = cheerio.load(body);
-                        //console.log($('.extra-discount-price').html()); //HB
                         var text = $($('script')).text();
-                        //console.log("text"+text);
-
                         var findAndClean = findTextAndReturnRemainder(text, "var productModel =");
-                        // console.log("findAndClean"+findAndClean);
-                        var result = JSON.parse(findAndClean);
-                        /* console.log("result"+result);*/
-                        var productName = result.product.name;
-                        var currentPrice = result.product.currentListing.currentPrice.value;
-                        //var currentPrice = result.product.currentListing.originalPriceFormatted;
-                       
-                        var oldProduct = priceList.get(productName);
+                        var result = JSON.parse(findAndClean)[0];
+                        var livePrice = result.sortPriceText;
+                        livePrice = Number(livePrice.substr(0,livePrice.search(',')));
+                        //var livePrice = result.product.currentListing.originalPriceFormatted;
 
-                        //curren 40
-                        //ss  best: 50 last: 70
-//https://developer.mozilla.org/tr/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
-if(oldProduct){
-    //product var
-    
-    if(oldProduct.lastPrice === currentPrice){
-            //birşey yapma
-    }else{
-            //sil - güncelle
-            var isBest = currentPrice < oldProduct.bestPrice;
-            priceList.delete(productName);
-            var priceListItem = {[productName] : {  'name': productName, 
-                                                    'bestPrice': isBest ? currentPrice : oldProduct.bestPrice,
-                                                    'lastPrice':currentPrice
-                                                }};
-
-            priceList.set(productName, priceListItem);
-            //console.log(productName+"_Price:"+currentPrice +"_old:"+oldProduct);
-        
-            if(isBest){
-                    msg.sendMessage(331002272,"Best "+oldProduct+" \r\n _NEW:"+productName+" \r\n "+currentPrice);
-            }
-    }
-
-}else{
-    var priceListItem = {[productName] : { 'name': productName , 'bestPrice': currentPrice, 'lastPrice':currentPrice}};
-    priceList.set(productName, priceListItem);
-    
-    msg.sendMessage(331002272,"New:"+productName+" \r\n"+currentPrice);
-}
-
-var strr = JSON.stringify(priceList);
-console.log(strr);
-fs.writeFile('data.txt', strr, function (err) { 
-    if(err) { 
-        console.log(err); 
-    } 
-        else{ 
-            console.log("success"); 
-        } 
-}); 
-
-
-/* 
-                        if(!oldProduct){
-                            priceList.set(productName, currentPrice);
-                            console.log(productName+"_Price:"+currentPrice +"_old:"+oldProduct);
-
-                            msg.sendMessage(331002272,"New:"+productName+" \r\n"+currentPrice);
-                        }else{
-
-                            if(oldProduct === currentPrice){
-
-                                //console.log("degisiklik yok");
-                            }else{
-                                priceList.delete(productName);
-                                priceList.set(productName, currentPrice);
-                                console.log(productName+"_Price:"+currentPrice +"_old:"+oldProduct);
-
-                                msg.sendMessage(331002272,"CoU: "+oldProduct+" \r\n _NEW:"+productName+" \r\n "+currentPrice);
-                            }
-                        }
-
- */
-                        //Dosyaya yaz
-                        /*    console.log(arr.toString());
-                        fs.writeFile('data.txt', arr, function (err) {
+                        let db = new sqlite3.Database('./db/priKer.sqlite3', sqlite3.OPEN_READWRITE, (err) => {
                             if (err) {
-                                console.log(err);
+                                console.error(err.message);
                             }
-                            else {
-                                console.log("success");
-                            }
-                        }); */
+                            console.log('Connected to the database.');
+                        });
 
+                        var oldProduct;
+                        db.get("SELECT productName, SourceSite, BestPrice, LastPrice, ProductLink FROM Product Where productName = ? ", [productName], function (err, row) {
+
+                            if (err) {
+                                throw err;
+                            }
+
+                            if (row) {
+                                oldProduct = {
+                                    productName: row.productName,
+                                    SourceSite: row.SourceSite,
+                                    BestPrice: row.BestPrice,
+                                    LastPrice: row.LastPrice,
+                                    ProductLink: row.ProductLink
+                                };
+                            }
+
+                            var actualProduct = {
+                                productName: productName,
+                                BestPrice: oldProduct ? oldProduct.BestPrice : Number.MAX_VALUE,
+                                LastPrice: livePrice,
+                                ProductLink: productUrl
+                            };
+
+                            if (oldProduct) {
+                                //product var
+                                if (oldProduct.LastPrice != livePrice) {
+                                    //product guncelle
+                                    var isBest = livePrice < oldProduct.BestPrice;
+
+                                    if (isBest) {
+                                        actualProduct.BestPrice = livePrice;
+                                        msg.sendMessage(331002272, "\xE2\x9A\xA0 Discount \xE2\x80\xBC : " + actualProduct.productName + " \r\n New:" + actualProduct.BestPrice + " \r\n Old:" + oldProduct.BestPrice);
+                                    }
+                                    repository.updateProductPrices(actualProduct)
+
+                                }
+                                repository.insertPriceTrackLogData(productName,'HB',actualProduct.BestPrice,oldProduct.LastPrice,livePrice, elem.url);
+
+                            } else {
+                                //yeni product
+                                repository.insertProduct(productName, 'HB', livePrice, livePrice, productUrl);
+                                repository.insertPriceTrackLogData(productName,'HB',livePrice,livePrice,livePrice, elem.url);
+                                msg.sendMessage(331002272, "\xE2\x9A\xA0 New Product \xE2\x80\xBC: " + productName + " \r\n Price: " + livePrice);
+
+                            }
+                            db.close;
+                            return arr;
+                        });
                     }
                 });
             });
@@ -143,3 +110,13 @@ fs.writeFile('data.txt', strr, function (err) {
 /*
 var reged = new RegExp('(?<=inStockDate"\:")(.*?)(?=\")').exec(text);
 console.log("regex sonuc_:"+reged); */
+
+
+/* var priceListItem = {
+    [productName]: {
+        'name': productName,
+        'bestPrice': isBest ? livePrice : oldProduct.bestPrice,
+        'lastPrice': livePrice
+    }
+};
+ */

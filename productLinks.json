@@ -1,11 +1,7 @@
 {
     "HepsiBurada": [
-        "https://www.hepsiburada.com/samsung-50ru7400-50-127-ekran-4k-ultra-hd-smart-led-tv-p-HBV00000KJSEM",
-        "https://www.hepsiburada.com/samsung-55ru7100-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000KOY8O",
-        "https://www.hepsiburada.com/samsung-49ru7100-49-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000KOY8M",
-        "https://www.hepsiburada.com/samsung-55q60rat-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-qled-tv-p-HBV00000JRW1V",
-        "https://www.hepsiburada.com/samsung-55ru7400-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000K2IC9",
-        "https://www.hepsiburada.com/samsung-49q60rat-49-124-ekran-4k-ultra-hd-smart-qled-tv-p-HBV00000KJSEE"
+        {"productName":"Samsung 49Q60RAT" , "url":"https://www.hepsiburada.com/samsung-49q60rat-49-124-ekran-4k-ultra-hd-smart-qled-tv-p-HBV00000KJSEE"},
+        {"productName":"Samsung 50RU4700" ,"url":"https://www.hepsiburada.com/samsung-50ru7400-50-127-ekran-4k-ultra-hd-smart-led-tv-p-HBV00000KJSEM"}
     ],
     "HepsiBuradaYedek": [
         "https://www.hepsiburada.com/samsung-50ru7400-50-127-ekran-4k-ultra-hd-smart-led-tv-p-HBV00000KJSEM",
