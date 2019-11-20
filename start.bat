@@ -1,1 +1,1 @@
-node priceTracker.js
+node index.js
