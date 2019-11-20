@@ -1,0 +1,24 @@
+{
+  "name": "priker",
+  "version": "1.0.0",
+  "description": "priker app for detect price changes",
+  "main": "index.js",
+  "dependencies": {
+    "crawler": "^1.2.1",
+    "hashmap": "^2.4.0",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/priKer"
+  },
+  "keywords": [
+    "price",
+    "track"
+  ],
+  "author": "Emre"
+}
