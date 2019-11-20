@@ -47,8 +47,8 @@ module.exports = {
                             if (err) {
                                 console.error(err.message);
                             }
-                            console.log('GetProduct: '+productName);
-                        });
+/*                             console.log('GetProduct: '+productName);
+ */                        });
 
                         var oldProduct;
                         db.get("SELECT productName, SourceSite, BestPrice, LastPrice, ProductLink FROM Product Where productName = ? ", [productName], function (err, row) {
