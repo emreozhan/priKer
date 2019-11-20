@@ -7,7 +7,7 @@ var HashMap = require('hashmap');
 var repository = require('./repository');
 
 
-
+var port = process.env.PORT || 5000;
 
 var http = require('http');
 var fileSystem = require('fs');
@@ -26,7 +26,7 @@ var server = http.createServer(function(req, resp){
 	});
 });
 
-server.listen(8080);
+server.listen(port);
 
 /* 
 
