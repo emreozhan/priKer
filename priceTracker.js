@@ -10,11 +10,12 @@ console.log('KickOff' + new Date() + '-');
 repository.createDb();
 
 var counter = 0;
-/* 
-setInterval(function () { */
-    console.log('KickOff' + new Date() + '-');
-    counter++;
 
-    HB.getPrice(products.HepsiBurada, counter);
+setInterval( function x(params) {
 
-/* }, 10000); */
+        console.log('Loop' + new Date() + '-');
+        counter++;
+    
+        HB.getPrice(products.HepsiBurada, counter);
+    return x;
+}(), 24000);//5min
