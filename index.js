@@ -24,11 +24,9 @@ var server = http.createServer(function(req, resp){
 			resp.end();
 		}
 	});
-});
+	
+	
 
-server.listen(port);
-
-/* 
 
 console.log('KickOff' + new Date() + '-');
 repository.createDb();
@@ -42,4 +40,8 @@ setInterval( function x(params) {
     
         HB.getPrice(products.HepsiBurada, counter);
     return x;
-}(), 24000);//5min */
+}(), 24000);//5min
+});
+
+server.listen(port);
+
