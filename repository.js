@@ -54,7 +54,7 @@ module.exports = {
         });
     },
     insertProduct: function (productName, SourceSite, BestPrice, LastPrice, ProductLink) {
-        console.log("Insert data")
+        console.log("DB insertProduct")
 
         let db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
             if (err) {

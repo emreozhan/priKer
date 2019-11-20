@@ -47,7 +47,7 @@ module.exports = {
                             if (err) {
                                 console.error(err.message);
                             }
-                            console.log('Connected to the database.');
+                            console.log('GetProduct: '+productName);
                         });
 
                         var oldProduct;
@@ -87,12 +87,12 @@ module.exports = {
                                     repository.updateProductPrices(actualProduct)
 
                                 }
-                                repository.insertPriceTrackLogData(productName,'HB',actualProduct.BestPrice,oldProduct.LastPrice,livePrice, elem.url);
+                                //repository.insertPriceTrackLogData(productName,'HB',actualProduct.BestPrice,oldProduct.LastPrice,livePrice, elem.url);
 
                             } else {
                                 //yeni product
                                 repository.insertProduct(productName, 'HB', livePrice, livePrice, productUrl);
-                                repository.insertPriceTrackLogData(productName,'HB',livePrice,livePrice,livePrice, elem.url);
+                                //repository.insertPriceTrackLogData(productName,'HB',livePrice,livePrice,livePrice, elem.url);
                                 msg.sendMessage(331002272, "\xE2\x9A\xA0 New Product \xE2\x80\xBC: " + productName + " \r\n Price: " + livePrice);
 
                             }

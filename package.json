@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "crawler": "^1.2.1",
+    "express": "^4.17.1",
     "hashmap": "^2.4.0",
     "sqlite3": "^4.1.0"
   },
