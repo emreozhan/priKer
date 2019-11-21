@@ -27,4 +27,4 @@ setInterval( function x(params) {
 
         HB.getPrice(products.HepsiBurada, counter);
     return x;
-}(), 500000);//5min
+}(), 500001);//5min...
