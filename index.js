@@ -8,7 +8,7 @@ const express = require('express');
 const app = express();
 
 var port = process.env.PORT || 5000;
-var period = 120000;
+var period = 60000;
 console.log(port);
 
 const server = app.listen(port, () => {
