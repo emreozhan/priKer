@@ -19,7 +19,7 @@ function findTextAndReturnRemainder(target, variable) {
 module.exports = {
 
     getPrice: function (urlList, counter, exCount) {
-        if (counter % 4 == 0) {
+        if (counter % 15 == 0) {
             msg.sendMessage(331002272, "I am alive !, Hello World!");
             console.log(counter)
         }
@@ -29,7 +29,6 @@ module.exports = {
             urlList.forEach(elem => {
                 var productUrl = elem.url;
                 var productName = elem.productName;
-                console.log( productName);
 
                     request(productUrl, function(err, res, body) {
                             if (err) {
@@ -44,7 +43,7 @@ module.exports = {
                                     var result = JSON.parse(findAndClean)[0];
 
                                 } catch (error) {
-                                    console.log("errorroror");
+                                    console.log("Json parse problem");
                                     return;
                                 }
                                 var livePrice = result.sortPriceText;
@@ -83,6 +82,8 @@ module.exports = {
                                     };
 
                                     if (oldProduct) {
+                                        console.log( productName + "---"+ livePrice);
+
                                         //product var
                                         if (oldProduct.LastPrice != livePrice) {
                                             //product guncelle
@@ -90,7 +91,7 @@ module.exports = {
 
                                             if (isBest) {
                                                 actualProduct.BestPrice = livePrice;
-                                                msg.sendMessage(331002272, "\xE2\x9A\xA0 Discount \xE2\x80\xBC : " + actualProduct.productName + " \r\n New:" + actualProduct.BestPrice + " \r\n Old:" + oldProduct.BestPrice);
+                                                msg.sendMessage(331002272, "\xE2\x9A\xA0 Discount \xE2\x80\xBC : " + actualProduct.productName + " \r\n New:" + actualProduct.BestPrice + " -- Old:" + oldProduct.BestPrice + "Dif: "+ (actualProduct.BestPrice-oldProduct.BestPrice);
                                             }
                                             repository.updateProductPrices(actualProduct)
 
@@ -101,7 +102,7 @@ module.exports = {
                                         //yeni product
                                         repository.insertProduct(productName, 'HB', livePrice, livePrice, productUrl);
                                         //repository.insertPriceTrackLogData(productName,'HB',livePrice,livePrice,livePrice, elem.url);
-                                        msg.sendMessage(331002272, "\xE2\x9A\xA0 New Product \xE2\x80\xBC: " + productName + " \r\n Price: " + livePrice);
+                                        msg.sendMessage(331002272, "\xE2\x9A\xA0 NEW Product \xE2\x80\xBC: " + productName + " \r\n Price: " + livePrice);
 
                                     }
                                     db.close;
