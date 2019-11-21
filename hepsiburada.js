@@ -23,12 +23,14 @@ module.exports = {
             msg.sendMessage(331002272, "I am alive !, Hello World!");
             console.log(counter)
         }
-        console.log(counter)
+        console.log( counter)
 
         if (urlList != null) {
             urlList.forEach(elem => {
                 var productUrl = elem.url;
                 var productName = elem.productName;
+                console.log( productName);
+
                     request(productUrl, function(err, res, body) {
                             if (err) {
                                 console.log("err: " + err);
