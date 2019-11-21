@@ -18,13 +18,13 @@ console.log('KickOff' + new Date() + '-');
 repository.createDb();
 
 var counter = 0;
-
+var exCount = 0;
 setInterval( function x(params) {
 
 /*         console.log('Loop' + new Date() + '-');
  */     counter++;
         app.get('/', (req, res) => res.send('Hello World!:'+ counter ))
 
-        HB.getPrice(products.HepsiBurada, counter);
+        HB.getPrice(products.HepsiBurada, counter, exCount);
     return x;
 }(), 500001);//5min...
