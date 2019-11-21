@@ -91,7 +91,7 @@ module.exports = {
 
                                             if (isBest) {
                                                 actualProduct.BestPrice = livePrice;
-                                                msg.sendMessage(331002272, "\xE2\x9A\xA0 Discount \xE2\x80\xBC : " + actualProduct.productName + " \r\n New:" + actualProduct.BestPrice + " -- Old:" + oldProduct.BestPrice + "Dif: "+ (actualProduct.BestPrice-oldProduct.BestPrice);
+                                                msg.sendMessage(331002272, "\xE2\x9A\xA0 Discount \xE2\x80\xBC : " + actualProduct.productName + " \r\n New:" + actualProduct.BestPrice + " -- Old:" + oldProduct.BestPrice + "Dif: "+ (actualProduct.BestPrice-oldProduct.BestPrice));
                                             }
                                             repository.updateProductPrices(actualProduct)
 
