@@ -23,21 +23,13 @@ module.exports = {
             msg.sendMessage(331002272, "I am alive !, Hello World!");
             console.log(counter)
         }
+        console.log(counter)
 
         if (urlList != null) {
             urlList.forEach(elem => {
                 var productUrl = elem.url;
                 var productName = elem.productName;
-                try {
-
-                    request({
-                            headers: {
-                                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:24.0) Gecko/20100101 Firefox/24.0',
-                                'Content-Type' : 'application/x-www-form-urlencoded' 
-                            },
-                            uri: productUrl,
-                            method: 'get'
-                          }, function(err, res, body) {
+                    request(productUrl, function(err, res, body) {
                             if (err) {
                                 console.log("err: " + err);
                             }
@@ -46,7 +38,13 @@ module.exports = {
                                 let $ = cheerio.load(body);
                                 var text = $($('script')).text();
                                 var findAndClean = findTextAndReturnRemainder(text, "var productModel =");
-                                var result = JSON.parse(findAndClean)[0];
+                                try {
+                                    var result = JSON.parse(findAndClean)[0];
+
+                                } catch (error) {
+                                    console.log("errorroror");
+                                    return;
+                                }
                                 var livePrice = result.sortPriceText;
                                 livePrice = Number(livePrice.substr(0, livePrice.search(',')));
                                 //var livePrice = result.product.currentListing.originalPriceFormatted;
@@ -110,9 +108,6 @@ module.exports = {
                             }
                         });
 
-                } catch (error) {
-                    msg.sendMessage(331002272, "\xE2\x9A\xA0 Error \xE2\x80\xBC: ${productName} ");
-                }
 
             });
 
