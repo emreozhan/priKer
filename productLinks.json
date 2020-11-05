@@ -1,10 +1,6 @@
 {
-    "HepsiBurada": [{"productName":"Samsung 50RU4700" ,"url":"https://www.hepsiburada.com/samsung-50ru7400-50-127-ekran-4k-ultra-hd-smart-led-tv-p-HBV00000KJSEM"},
-        {"productName":"Samsung 49Q60RAT" , "url":"https://www.hepsiburada.com/samsung-49q60rat-49-124-ekran-4k-ultra-hd-smart-qled-tv-p-HBV00000KJSEE"},
-        {"productName":"Samsung 49ru7100" ,"url":"https://www.hepsiburada.com/samsung-49ru7100-49-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000KOY8M"},
-        {"productName":"Samsung 55ru7100" ,"url":"https://www.hepsiburada.com/samsung-55ru7100-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000KOY8O"},
-        {"productName":"Samsung 55q60rat" ,"url":"https://www.hepsiburada.com/samsung-55q60rat-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-qled-tv-p-HBV00000JRW1V"},
-        {"productName":"Samsung 55ru7400" ,"url":"https://www.hepsiburada.com/samsung-55ru7400-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000K2IC9"}
+    "HepsiBurada": [{"productName":"ryzen 3600" ,"url":"https://www.hepsiburada.com/amd-ryzen-5-3600-3-6ghz-35mb-cache-soket-am4-islemci-p-HBV00000LLPAM"}
+ 
     ],
     "HepsiBuradaYedek": [
         {"productName":"Samsung 50RU4700" ,"url":"https://www.hepsiburada.com/samsung-50ru7400-50-127-ekran-4k-ultra-hd-smart-led-tv-p-HBV00000KJSEM"},
