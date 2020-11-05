@@ -1,6 +1,6 @@
 {
-    "HepsiBurada": [{"productName":"ryzen 3600" ,"url":"https://www.hepsiburada.com/amd-ryzen-5-3600-3-6ghz-35mb-cache-soket-am4-islemci-p-HBV00000LLPAM"}
- 
+    "HepsiBurada": [{"productName":"ryzen 3600" ,"url":"https://www.hepsiburada.com/amd-ryzen-5-3600-3-6ghz-35mb-cache-soket-am4-islemci-p-HBV00000LLPAM"},
+ {"productName":"nvdia" ,"url":"https://www.hepsiburada.com/palit-nvidia-geforce-rtx3070-gaming-pro-oc-8gb-256bit-dx12-pci-e-4-0-gddr6-ekran-karti-p-HBV00000ZOYT2?magaza=GarajOnline"}
     ],
     "HepsiBuradaYedek": [
         {"productName":"Samsung 50RU4700" ,"url":"https://www.hepsiburada.com/samsung-50ru7400-50-127-ekran-4k-ultra-hd-smart-led-tv-p-HBV00000KJSEM"},
