@@ -70,7 +70,7 @@ module.exports = {
                   actualProduct.BestPrice +
                   " -- Old:" +
                   oldProduct.BestPrice +
-                  "Dif: " +
+                  "  Dif: " +
                   (actualProduct.BestPrice - oldProduct.BestPrice)
               );
             }

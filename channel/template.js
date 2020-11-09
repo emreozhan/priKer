@@ -29,7 +29,7 @@ module.exports = {
 
               var livePrice = $("div.price-current")[0].firstChild.data;
               livePrice = livePrice.replace(",", ".");
-              livePrice = Number(livePrice.substr(1, livePrice.length - 1));
+              livePrice = Number(livePrice.substr(0, livePrice.length - 1));
 
               PCU.checkBestPriceAndUpdate('SOURCE_________',productName, productUrl, livePrice);
   /**INFO Change Here */
