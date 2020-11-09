@@ -10,10 +10,7 @@ module.exports = {
 
         request(URL, function (err, res, body) { 
 
-            //console.log(URL); 
-           // console.log(res); 
- /*            console.log(body); 
- */
+
             if(err) 
             { 
                 console.log(err); 

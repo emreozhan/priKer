@@ -1,14 +1,16 @@
 const fs = require('fs'); 
-var HB = require('./hepsiburada');
 var products = require('./productLinks');
 var util = require('./Util');
 var HashMap = require('hashmap');
 var repository = require('./repository');
 const express = require('express');
 const app = express();
+var HB = require('./hepsiburada');
+var NEWEGG = require('./channel/newegg');
+
 
 var port = process.env.PORT || 5000;
-var period = 60000;
+var period = 3000;
 console.log(port);
 
 const server = app.listen(port, () => {
@@ -23,7 +25,9 @@ var exCount = 0;
 setInterval( function x(params) {
         app.get('/', (req, res) => res.send('Hello World!:'+ counter ))
 
-        HB.getPrice(products.HepsiBurada, counter, exCount);
+        //HB.getPrice(products.HepsiBurada, counter, exCount);
+        NEWEGG.getPrice(products.NewEgg, counter, exCount);
+
         counter++;
 
     return x;

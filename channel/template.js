@@ -54,7 +54,6 @@ module.exports = {
             }
             var livePrice = result.sortPriceText;
             livePrice = Number(livePrice.substr(0, livePrice.search(",")));
-            //var livePrice = result.product.currentListing.originalPriceFormatted;
 
             PCU.checkBestPriceAndUpdate(productName, productUrl, livePrice);
           }
@@ -63,16 +62,3 @@ module.exports = {
     }
   },
 };
-
-/*
-var reged = new RegExp('(?<=inStockDate"\:")(.*?)(?=\")').exec(text);
-console.log("regex sonuc_:"+reged); */
-
-/* var priceListItem = {
-    [productName]: {
-        'name': productName,
-        'bestPrice': isBest ? livePrice : oldProduct.bestPrice,
-        'lastPrice': livePrice
-    }
-};
- */

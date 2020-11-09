@@ -1,18 +1,15 @@
 {
-    "HepsiBurada": [{"productName":"Samsung 50RU4700" ,"url":"https://www.hepsiburada.com/samsung-50ru7400-50-127-ekran-4k-ultra-hd-smart-led-tv-p-HBV00000KJSEM"},
-        {"productName":"Samsung 49Q60RAT" , "url":"https://www.hepsiburada.com/samsung-49q60rat-49-124-ekran-4k-ultra-hd-smart-qled-tv-p-HBV00000KJSEE"},
-        {"productName":"Samsung 49ru7100" ,"url":"https://www.hepsiburada.com/samsung-49ru7100-49-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000KOY8M"},
-        {"productName":"Samsung 55ru7100" ,"url":"https://www.hepsiburada.com/samsung-55ru7100-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000KOY8O"},
-        {"productName":"Samsung 55q60rat" ,"url":"https://www.hepsiburada.com/samsung-55q60rat-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-qled-tv-p-HBV00000JRW1V"},
-        {"productName":"Samsung 55ru7400" ,"url":"https://www.hepsiburada.com/samsung-55ru7400-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000K2IC9"}
+    "HepsiBurada": [
+        {
+            "productName": " corsaiasdsasd-rm850xxxxx",
+            "url": "https://www.newegg.com/global/tr-en/corsair-rmx-series-rm850x-cp-9020180-na-850w/p/N82E16817139234?Item=N82E16817139234&cm_sp=homepage_featuredproducts-_-p2_17-139-234-_-11092020"
+        }
     ],
-    "HepsiBuradaYedek": [
-        {"productName":"Samsung 50RU4700" ,"url":"https://www.hepsiburada.com/samsung-50ru7400-50-127-ekran-4k-ultra-hd-smart-led-tv-p-HBV00000KJSEM"},
-        {"productName":"Samsung 49Q60RAT" , "url":"https://www.hepsiburada.com/samsung-49q60rat-49-124-ekran-4k-ultra-hd-smart-qled-tv-p-HBV00000KJSEE"},
-        {"productName":"Samsung 49ru7100" ,"url":"https://www.hepsiburada.com/samsung-49ru7100-49-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000KOY8M"},
-        {"productName":"Samsung 55ru7100" ,"url":"https://www.hepsiburada.com/samsung-55ru7100-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000KOY8O"},
-        {"productName":"Samsung 55q60rat" ,"url":"https://www.hepsiburada.com/samsung-55q60rat-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-qled-tv-p-HBV00000JRW1V"},
-        {"productName":"Samsung 55ru7400" ,"url":"https://www.hepsiburada.com/samsung-55ru7400-55-139-ekran-uydu-alicili-4k-ultra-hd-smart-led-tv-p-HBV00000K2IC9"}
+    "NewEgg": [
+        {
+            "productName": "newegg amd-ryzen-5-5600x",
+            "url": "https://www.newegg.com/global/tr-en/amd-ryzen-5-5600x/p/N82E16819113666?Description=ryzen%205%205600x&cm_re=ryzen_5%205600x-_-19-113-666-_-Product"
+        }
     ],
     "N11": [
         "https://www.n11.com/urun/samsung-ue50ru7400uxtk-50-smart-4k-ultra-hd-led-tv-946219"
