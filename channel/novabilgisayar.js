@@ -23,16 +23,23 @@ module.exports = {
           if (err) {
             console.log("err: " + err);
           } else {
-  /**INFO Change Here */
+            const arr = [];
+            let $ = cheerio.load(body);
 
-              let $ = cheerio.load(body);
-
-              var livePrice = $("div.price-current")[0].firstChild.data;
+            try {
+              var livePrice = $("span.styleFiyat")[0].firstChild.data;
               livePrice = livePrice.replace(",", ".");
-              livePrice = Number(livePrice.substr(1, livePrice.length - 1));
+              livePrice = Number(livePrice.substr(0, livePrice.search(" TL")));
+            } catch {
+              livePrice = Number(0);
+            }
 
-              PCU.checkBestPriceAndUpdate('SOURCE_________',productName, productUrl, livePrice);
-  /**INFO Change Here */
+            PCU.checkBestPriceAndUpdate(
+              "Nova",
+              productName,
+              productUrl,
+              livePrice
+            );
           }
         });
       });

@@ -23,16 +23,22 @@ module.exports = {
           if (err) {
             console.log("err: " + err);
           } else {
-  /**INFO Change Here */
+            let $ = cheerio.load(body);
 
-              let $ = cheerio.load(body);
+            try {
+              var livePrice = $("div.price").text().trim();
 
-              var livePrice = $("div.price-current")[0].firstChild.data;
-              livePrice = livePrice.replace(",", ".");
-              livePrice = Number(livePrice.substr(1, livePrice.length - 1));
+              livePrice = Number(livePrice.substring(0, livePrice.search(",")));
+            } catch {
+              livePrice = Number(0);
+            }
 
-              PCU.checkBestPriceAndUpdate('SOURCE_________',productName, productUrl, livePrice);
-  /**INFO Change Here */
+            PCU.checkBestPriceAndUpdate(
+              "WebdenAl",
+              productName,
+              productUrl,
+              livePrice
+            );
           }
         });
       });

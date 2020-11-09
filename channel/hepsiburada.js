@@ -1,11 +1,11 @@
 const request = require("request");
 const cheerio = require("cheerio");
 const fs = require("fs");
-var msg = require("./messageHelper");
-const Util = require("./Util.js");
-const repository = require("./repository");
+var msg = require("../messageHelper");
+const Util = require("../Util.js");
+const repository = require("../repository");
 const sqlite3 = require("sqlite3").verbose();
-var PCU = require("./priceCheckUtil");
+var PCU = require("../priceCheckUtil");
 
 function findTextAndReturnRemainder(target, variable) {
   var chopFront = target.substring(
@@ -56,7 +56,7 @@ module.exports = {
             livePrice = Number(livePrice.substr(0, livePrice.search(",")));
             //var livePrice = result.product.currentListing.originalPriceFormatted;
 
-            PCU.checkBestPriceAndUpdate(productName, productUrl, livePrice);
+            PCU.checkBestPriceAndUpdate('HepsiBurada', productName, productUrl, livePrice);
           }
         });
       });

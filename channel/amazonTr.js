@@ -23,16 +23,26 @@ module.exports = {
           if (err) {
             console.log("err: " + err);
           } else {
-  /**INFO Change Here */
+            /**INFO Change Here */
 
-              let $ = cheerio.load(body);
+            let $ = cheerio.load(body);
 
-              var livePrice = $("div.price-current")[0].firstChild.data;
+            try {
+              var livePrice = $("#buyNewSection > div > div > span > span")[0]
+                .firstChild.data;
               livePrice = livePrice.replace(",", ".");
-              livePrice = Number(livePrice.substr(1, livePrice.length - 1));
+              livePrice = Number(livePrice.substr(1, livePrice.length - 3));
+            } catch {
+              livePrice = Number(0);
+            }
+            PCU.checkBestPriceAndUpdate(
+              "amazonTr",
+              productName,
+              productUrl,
+              livePrice
+            );
 
-              PCU.checkBestPriceAndUpdate('SOURCE_________',productName, productUrl, livePrice);
-  /**INFO Change Here */
+            /**INFO Change Here */
           }
         });
       });

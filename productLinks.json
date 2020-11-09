@@ -1,14 +1,32 @@
 {
     "HepsiBurada": [
         {
-            "productName": " corsaiasdsasd-rm850xxxxx",
+            "productName": "HepsiBurada corsaiasdsasd-rm850xxxxx",
             "url": "https://www.newegg.com/global/tr-en/corsair-rmx-series-rm850x-cp-9020180-na-850w/p/N82E16817139234?Item=N82E16817139234&cm_sp=homepage_featuredproducts-_-p2_17-139-234-_-11092020"
         }
     ],
     "NewEgg": [
         {
-            "productName": "newegg amd-ryzen-5-5600x",
+            "productName": "NewEgg amd-ryzen-5-5600x",
             "url": "https://www.newegg.com/global/tr-en/amd-ryzen-5-5600x/p/N82E16819113666?Description=ryzen%205%205600x&cm_re=ryzen_5%205600x-_-19-113-666-_-Product"
+        }
+    ],
+    "WebdenAl": [
+        {
+            "productName": "WebdenAll amd-ryzen-5-5600x-am4pin-65w-box_1024985",
+            "url": "https://www.webdenal.com/amd-ryzen-5-5600x-am4pin-65w-box_1024985.html"
+        }
+    ],
+    "NovaBilgisayar": [
+        {
+            "productName": "NovaBilgisayar AMD Ryzen 5 5600X 3.7",
+            "url": "https://www.novabilgisayar.com/bilgi.asp?ID=13094"
+        }
+    ],
+    "AmazonTr": [
+    {
+            "productName": "AmazonTr AMD Ryzen 5 5600X 3.7",
+            "url": "https://www.amazon.com.tr/dp/B08166SLDF/ref=cm_sw_r_u_apa_fabc_QpzQFb563GYX2?_encoding=UTF8&psc=1"
         }
     ],
     "N11": [

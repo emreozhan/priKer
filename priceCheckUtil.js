@@ -6,9 +6,10 @@ var msg = require("./messageHelper");
 const Util = require("./Util.js");
 const repository = require("./repository");
 const sqlite3 = require("sqlite3").verbose();
-
+const NOSTOCKPRICE = Number(99999999);
 module.exports = {
-  checkBestPriceAndUpdate: function (productName, productUrl, livePrice) {
+
+  checkBestPriceAndUpdate: function (sourceSite, productName, productUrl, livePrice) {
     let db = new sqlite3.Database(
       "./db/priKer.sqlite3",
       sqlite3.OPEN_READWRITE,
@@ -28,6 +29,7 @@ module.exports = {
           throw err;
         }
 
+      
         if (row) {
           oldProduct = {
             productName: row.productName,
@@ -40,7 +42,7 @@ module.exports = {
 
         var actualProduct = {
           productName: productName,
-          BestPrice: oldProduct ? oldProduct.BestPrice : Number.MAX_VALUE,
+          BestPrice: oldProduct ? oldProduct.BestPrice : NOSTOCKPRICE,
           LastPrice: livePrice,
           ProductLink: productUrl,
         };
@@ -49,6 +51,11 @@ module.exports = {
           console.log(productName + "---" + livePrice);
 
           //product var
+          if(livePrice == 0){
+            livePrice = NOSTOCKPRICE;
+            actualProduct.LastPrice = NOSTOCKPRICE;
+            actualProduct.BestPrice = NOSTOCKPRICE;
+          }
           if (oldProduct.LastPrice != livePrice) {
             //product guncelle
             var isBest = livePrice < oldProduct.BestPrice;
@@ -74,7 +81,7 @@ module.exports = {
           //yeni product
           repository.insertProduct(
             productName,
-            "HB",
+            sourceSite,
             livePrice,
             livePrice,
             productUrl
