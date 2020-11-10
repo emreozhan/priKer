@@ -7,13 +7,13 @@
     ],
     "NewEgg": [
         {
-            "productName": "NewEgg amd-ryzen-5-5600x",
+            "productName": "NewEgg Amd-ryzen-5-5600x",
             "url": "https://www.newegg.com/global/tr-en/amd-ryzen-5-5600x/p/N82E16819113666?Description=ryzen%205%205600x&cm_re=ryzen_5%205600x-_-19-113-666-_-Product"
         }
     ],
     "WebdenAl": [
         {
-            "productName": "WebdenAll amd-ryzen-5-5600x-am4pin-65w-box_1024985",
+            "productName": "WebdenAll Amd-ryzen-5-5600x",
             "url": "https://www.webdenal.com/amd-ryzen-5-5600x-am4pin-65w-box_1024985.html"
         }
     ],
@@ -24,12 +24,15 @@
         }
     ],
     "AmazonTr": [
-    {
-            "productName": "AmazonTr AMD Ryzen 5 5600X 3.7",
+        {
+            "productName": "AmazonTr AMD Ryzen 5 5600X",
             "url": "https://www.amazon.com.tr/dp/B08166SLDF/ref=cm_sw_r_u_apa_fabc_QpzQFb563GYX2?_encoding=UTF8&psc=1"
         }
     ],
     "N11": [
-        "https://www.n11.com/urun/samsung-ue50ru7400uxtk-50-smart-4k-ultra-hd-led-tv-946219"
+        {
+            "productName": "N11.com AMD Ryzen 5 5600X",
+            "url": "https://www.n11.com/urun/amd-ryzen-5-5600x-100-100000065box-37-ghz-soket-am4-32-mb-cache-65-w-islemci-1611318?magaza=magic"
+        }
     ]
 }

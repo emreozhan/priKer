@@ -28,15 +28,14 @@ module.exports = {
             let $ = cheerio.load(body);
 
             try {
-              var livePrice = $("#priceblock_ourprice")[0]
-                .firstChild.data;
-              livePrice = livePrice.replace(",", ".");
-              livePrice = Number(livePrice.substr(1, livePrice.length - 4));
+              var livePrice = body.substr(60843+57,5);
+               livePrice = livePrice.replace(",", ".");
+              livePrice = Number(livePrice.substr(0, livePrice.length));
             } catch {
               livePrice = Number(0);
             }
             PCU.checkBestPriceAndUpdate(
-              "amazonTr",
+              "N11",
               productName,
               productUrl,
               livePrice
